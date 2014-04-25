@@ -1,6 +1,8 @@
-package com.mat.hyb.ublog;
+package com.mat.hyb.ublog.activity;
 
 import android.app.Activity;
+
+import com.mat.hyb.ublog.R;
 
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.OptionsMenu;
