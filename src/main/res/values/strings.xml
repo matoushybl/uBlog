@@ -7,8 +7,8 @@
     <string name="add">Add</string>
     <string name="done">Done</string>
     <string name="title">Title</string>
-    <string name="content">Content</string>
-    <string name="add_label">ADD NEW uBLOGPOST</string>
+    <string name="content">Post</string>
+    <string name="add_label">ADD NEW POST</string>
     <string name="tutorial">Tap + to add post</string>
     <string name="warning">Please fill at least the title</string>
     <string name="edit">Edit</string>

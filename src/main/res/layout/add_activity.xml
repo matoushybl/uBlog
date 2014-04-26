@@ -7,51 +7,59 @@
     android:orientation="vertical"
     android:padding="@dimen/activity_horizontal_margin">
 
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@drawable/card"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
-        android:paddingLeft="8dp"
-        android:textSize="16sp"
-        android:text="@string/add_label"
-        android:textColor="#0099cc"
-        android:textStyle="bold" />
+        android:padding="12dp"
+        android:layout_height="wrap_content">
 
-    <View
-        android:id="@+id/separator1"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#0099cc" />
-
-    <com.mat.hyb.ublog.view.FloatLabelLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        app:floatLabelTextAppearance="@style/FloatLabel">
-
-        <EditText
-            android:id="@+id/title"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/title"
-            android:imeOptions="actionNext"
-            android:nextFocusDown="@+id/content" />
-    </com.mat.hyb.ublog.view.FloatLabelLayout>
+            android:layout_marginBottom="2dp"
+            android:paddingLeft="8dp"
+            android:textSize="16sp"
+            android:text="@string/add_label"
+            android:textColor="#0099cc"
+            android:textStyle="bold" />
 
-    <com.mat.hyb.ublog.view.FloatLabelLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        app:floatLabelTextAppearance="@style/FloatLabel">
+        <!--<View
+            android:id="@+id/separator1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#0099cc" />-->
 
-        <EditText
-            android:id="@+id/content"
+        <com.mat.hyb.ublog.view.FloatLabelLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/content"
-            android:imeOptions="actionDone"
-            android:inputType="textMultiLine"
-            android:maxLength="200" />
-    </com.mat.hyb.ublog.view.FloatLabelLayout>
+            android:layout_marginTop="14dp"
+            app:floatLabelTextAppearance="@style/FloatLabel">
+
+            <EditText
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/title"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@+id/content" />
+        </com.mat.hyb.ublog.view.FloatLabelLayout>
+
+        <com.mat.hyb.ublog.view.FloatLabelLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:floatLabelTextAppearance="@style/FloatLabel">
+
+            <EditText
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/content"
+                android:imeOptions="actionDone"
+                android:inputType="textMultiLine"
+                android:maxLength="200" />
+        </com.mat.hyb.ublog.view.FloatLabelLayout>
+    </LinearLayout>
 
 </LinearLayout>
