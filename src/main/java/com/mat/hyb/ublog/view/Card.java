@@ -9,6 +9,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.mat.hyb.ublog.R;
+import com.mat.hyb.ublog.activity.AddPostActivity_;
 import com.mat.hyb.ublog.entity.Post;
 
 import org.androidannotations.annotations.Click;
@@ -43,6 +44,7 @@ public class Card extends LinearLayout {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.edit:
+                        AddPostActivity_.intent(getContext()).id(post.getId()).start();
                         return true;
                     case R.id.delete:
                         TorchService.torch().delete().entity(post);

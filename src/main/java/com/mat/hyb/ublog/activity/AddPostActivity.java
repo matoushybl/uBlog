@@ -16,6 +16,7 @@ import com.mat.hyb.ublog.utility.DateTimeParser;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.Extra;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.StringRes;
 import org.brightify.torch.TorchService;
@@ -38,10 +39,16 @@ public class AddPostActivity extends Activity {
     @Bean
     DateTimeParser parser;
 
+    @Extra("id")
+    long id = -1;
+
     private Post post = new Post();
 
     @AfterViews
     void init() {
+        if (id != -1) {
+            post = TorchService.torch().load().type(Post.class).id(id);
+        }
         title.setText(post.getTitle());
         content.setText(post.getContent());
     }
