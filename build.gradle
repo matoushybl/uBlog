@@ -50,7 +50,7 @@ android {
             if (System.console() != null) {
                 storeFile file(System.console().readLine("\n\$ Enter keystore path: "))
                 storePassword System.console().readLine("\n\$ Enter keystore password: ")
-                keyAlias "matoushybl_private"
+                keyAlias System.console().readLine("\n\$ Enter key Alias: ")
                 keyPassword System.console().readLine("\n\$ Enter key password: ")
             }
         }
