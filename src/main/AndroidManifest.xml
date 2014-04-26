@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mat.hyb.ublog" >
+    package="com.mat.hyb.ublog">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name=".BaseApplication_"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name="com.mat.hyb.ublog.activity.MainActivity_"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,6 +21,24 @@
         </activity>
         <activity android:name=".activity.AddPostActivity_" />
         <activity android:name=".activity.SettingsActivity_" />
+
+        <receiver android:name=".receiver.BootReceiver_">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receiver.TimerReceiver_">
+            <intent-filter>
+                <action android:name="com.mat.hyb.ublog.display" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receiver.NotificationReceiver_">
+            <intent-filter>
+                <action android:name="com.mat.hyb.ublog.display" />
+            </intent-filter>
+        </receiver>
 
     </application>
 

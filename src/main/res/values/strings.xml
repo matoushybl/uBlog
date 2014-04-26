@@ -16,5 +16,9 @@
     <string name="delete_everything">Delete everything</string>
     <string name="author">Author</string>
     <string name="used_libraries">Used libraries</string>
+    <string name="notification_settings_label">Notification</string>
+    <string name="remind_me">Remind to write posts</string>
+    <string name="reminder_time">Reminder time</string>
+    <string name="details">Details</string>
 
 </resources>

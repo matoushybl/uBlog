@@ -73,4 +73,6 @@ dependencies {
     compile 'com.readystatesoftware.systembartint:systembartint:+'
     apt "org.brightify.torch:torch-compiler:${torchVersion}"
     compile "org.brightify.torch:torch-core:${torchVersion}"
+    compile 'com.doomonafireball.betterpickers:library:1.5.2'
+    compile 'com.android.support:support-v4:19.0.+'
 }

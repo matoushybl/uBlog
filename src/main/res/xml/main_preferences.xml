@@ -6,10 +6,26 @@
         android:key="deleteAll"
         android:title="@string/delete_everything" />
 
-    <Preference
-        android:key="authorInfo"
-        android:title="@string/author" />
-    <Preference
-        android:key="usedLibraries"
-        android:title="@string/used_libraries" />
+    <PreferenceCategory android:title="@string/notification_settings_label">
+
+        <CheckBoxPreference
+            android:checked="false"
+            android:key="notification"
+            android:title="@string/remind_me" />
+
+        <Preference
+            android:enabled="false"
+            android:key="notificationTime"
+            android:title="@string/reminder_time" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/details">
+
+        <Preference
+            android:key="authorInfo"
+            android:title="@string/author" />
+        <Preference
+            android:key="usedLibraries"
+            android:title="@string/used_libraries" />
+    </PreferenceCategory>
 </PreferenceScreen>
