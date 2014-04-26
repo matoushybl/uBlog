@@ -1,7 +1,9 @@
 package com.mat.hyb.ublog.activity;
 
 import android.app.Activity;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.mat.hyb.ublog.R;
 import com.mat.hyb.ublog.adapter.CardAdapter;
@@ -23,6 +25,9 @@ public class MainActivity extends Activity {
     @ViewById
     ListView listView;
 
+    @ViewById
+    TextView tutorial;
+
     private List<Post> posts;
     private CardAdapter adapter;
 
@@ -31,6 +36,11 @@ public class MainActivity extends Activity {
         posts = TorchService.torch().load().type(Post.class).list();
         adapter = new CardAdapter(this, R.layout.card, posts);
         listView.setAdapter(adapter);
+        if (posts.size() > 0) {
+            tutorial.setVisibility(View.GONE);
+        } else {
+            tutorial.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
