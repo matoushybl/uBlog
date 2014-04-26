@@ -51,7 +51,7 @@ public class Card extends LinearLayout {
     public void setPost(Post post) {
         this.post = post;
         title.setText(post.getTitle());
-        date.setText(post.getDate()); // TODO reconsider adding time
+        date.setText(post.getDate() + ", " + post.getTime()); // TODO reconsider adding time
         content.setText(post.getContent());
     }
 

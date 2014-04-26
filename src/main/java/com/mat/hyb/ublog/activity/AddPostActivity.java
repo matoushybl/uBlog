@@ -11,8 +11,10 @@ import android.widget.Toast;
 
 import com.mat.hyb.ublog.R;
 import com.mat.hyb.ublog.entity.Post;
+import com.mat.hyb.ublog.utility.DateTimeParser;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.StringRes;
@@ -23,6 +25,7 @@ import org.brightify.torch.TorchService;
  */
 @EActivity(R.layout.add_activity)
 public class AddPostActivity extends Activity {
+
     @ViewById
     EditText title;
 
@@ -31,6 +34,9 @@ public class AddPostActivity extends Activity {
 
     @StringRes
     String warning;
+
+    @Bean
+    DateTimeParser parser;
 
     private Post post = new Post();
 
@@ -60,6 +66,9 @@ public class AddPostActivity extends Activity {
                         && !title.getText().toString().equals("")) {
                     post.setTitle(title.getText().toString());
                     post.setContent(content.getText().toString());
+                    post.setMillis(System.currentTimeMillis());
+                    post.setDate(parser.getDate());
+                    post.setTime(parser.getTime());
                     TorchService.torch().save().entity(post);
                     finish();
                 } else {
