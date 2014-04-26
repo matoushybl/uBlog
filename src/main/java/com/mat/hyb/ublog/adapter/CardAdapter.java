@@ -25,6 +25,17 @@ public class CardAdapter extends BaseAdapter {
     @RootContext
     Context context;
 
+    public interface OnItemsChanged {
+        void onItemsChanged();
+    }
+
+    private OnItemsChanged onItemsChanged = new OnItemsChanged() {
+        @Override
+        public void onItemsChanged() {
+
+        }
+    };
+
     private List<Post> posts = new ArrayList<Post>();
     private List<Card> cards = new ArrayList<Card>();
 
@@ -54,7 +65,18 @@ public class CardAdapter extends BaseAdapter {
         for (Post post : posts) {
             Card card = Card_.build(context);
             card.setPost(post);
+            card.setOnCardDeleted(new Card.OnCardDeleted() {
+                @Override
+                public void onDeleted() {
+                    refresh();
+                    onItemsChanged.onItemsChanged();
+                }
+            });
             cards.add(card);
         }
+    }
+
+    public void setOnItemsChanged(OnItemsChanged onItemsChanged) {
+        this.onItemsChanged = onItemsChanged;
     }
 }

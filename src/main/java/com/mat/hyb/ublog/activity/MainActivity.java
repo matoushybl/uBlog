@@ -30,8 +30,19 @@ public class MainActivity extends Activity {
 
     @AfterViews
     void init() {
+        adapter.setOnItemsChanged(new CardAdapter.OnItemsChanged() {
+            @Override
+            public void onItemsChanged() {
+                listView.setAdapter(adapter);
+                showOrHideTutorial();
+            }
+        });
         adapter.refresh();
         listView.setAdapter(adapter);
+        showOrHideTutorial();
+    }
+
+    private void showOrHideTutorial() {
         if (adapter.getCount() > 0) {
             tutorial.setVisibility(View.GONE);
         } else {
