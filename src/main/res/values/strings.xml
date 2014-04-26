@@ -10,5 +10,6 @@
     <string name="content">Content</string>
     <string name="add_label">ADD NEW uBLOGPOST</string>
     <string name="tutorial">Tap + to add post</string>
+    <string name="warning">Please fill at least the title</string>
 
 </resources>

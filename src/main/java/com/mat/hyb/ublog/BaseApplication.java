@@ -2,7 +2,7 @@ package com.mat.hyb.ublog;
 
 import android.app.Application;
 
-import com.mat.hyb.ublog.entity.Post;
+import com.mat.hyb.ublog.entity.Post$;
 
 import org.androidannotations.annotations.EApplication;
 import org.brightify.torch.TorchService;
@@ -15,6 +15,6 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        TorchService.with(this).register(Post.class);
+        TorchService.with(this).register(Post$.create());
     }
 }

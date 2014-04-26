@@ -70,7 +70,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     apt 'org.androidannotations:androidannotations:3.0.1'
     compile 'org.androidannotations:androidannotations-api:3.0.1'
-    compile 'com.android.support:support-v4:19.0.+'
     compile 'com.readystatesoftware.systembartint:systembartint:+'
     apt "org.brightify.torch:torch-compiler:${torchVersion}"
     compile "org.brightify.torch:torch-core:${torchVersion}"

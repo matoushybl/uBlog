@@ -2,7 +2,6 @@ package com.mat.hyb.ublog.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -43,16 +42,10 @@ public class Card extends LinearLayout {
         setBackgroundResource(R.drawable.card);
         setOrientation(VERTICAL);
         int padding = 0;
-        int bottomMargin = 0;
         if (getResources() != null) {
             padding = getResources().getDimensionPixelSize(R.dimen.card_padding);
-            bottomMargin = getResources().getDimensionPixelSize(R.dimen.card_margin);
         }
         setPadding(padding, padding, padding, padding);
-        LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.setMargins(0, 0, 0, bottomMargin);
-        setLayoutParams(params);
     }
 
     public void setPost(Post post) {

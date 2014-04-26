@@ -6,26 +6,44 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.mat.hyb.ublog.R;
+import com.mat.hyb.ublog.entity.Post;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.res.StringRes;
+import org.brightify.torch.TorchService;
 
 /**
  * Created by matous on 26.4.14 for uBlog.
  */
 @EActivity(R.layout.add_activity)
 public class AddPostActivity extends Activity {
+    @ViewById
+    EditText title;
+
+    @ViewById
+    EditText content;
+
+    @StringRes
+    String warning;
+
+    private Post post = new Post();
 
     @AfterViews
     void init() {
+        title.setText(post.getTitle());
+        content.setText(post.getContent());
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        final Activity activity = this;
         LayoutInflater inflater = (LayoutInflater) getActionBar().getThemedContext()
                 .getSystemService(LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.action_bar_done_cancel, null);
@@ -38,8 +56,15 @@ public class AddPostActivity extends Activity {
         view.findViewById(R.id.done).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO some stuff
-                finish();
+                if (title.getText() != null && content.getText() != null
+                        && !title.getText().toString().equals("")) {
+                    post.setTitle(title.getText().toString());
+                    post.setContent(content.getText().toString());
+                    TorchService.torch().save().entity(post);
+                    finish();
+                } else {
+                    Toast.makeText(activity, warning, Toast.LENGTH_LONG).show();
+                }
             }
         });
         getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM, ActionBar.DISPLAY_SHOW_CUSTOM

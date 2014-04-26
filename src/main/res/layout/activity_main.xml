@@ -8,7 +8,9 @@
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:dividerHeight="5dp"
+        android:divider="#f1f1f1"/>
 
     <TextView
         android:id="@+id/tutorial"
@@ -18,5 +20,5 @@
         android:text="@string/tutorial"
         android:textColor="#0099cc"
         android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 </RelativeLayout>
