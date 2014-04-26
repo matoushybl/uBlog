@@ -6,4 +6,9 @@
         <item name="android:actionBarStyle">@style/ActionBar.Solid.Ublogtheme</item>
     </style>
 
+    <style name="FloatLabel" parent="android:TextAppearance.Small">
+        <item name="android:textColor">#0099cc</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>
