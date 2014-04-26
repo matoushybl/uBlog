@@ -33,6 +33,12 @@ public class MainActivity extends Activity {
         listView.setAdapter(adapter);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        init();
+    }
+
     @OptionsItem
     void add() {
         AddPostActivity_.intent(this).start();

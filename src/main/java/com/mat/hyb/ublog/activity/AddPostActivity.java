@@ -15,7 +15,7 @@ import org.androidannotations.annotations.EActivity;
 /**
  * Created by matous on 26.4.14 for uBlog.
  */
-@EActivity
+@EActivity(R.layout.add_activity)
 public class AddPostActivity extends Activity {
 
     @AfterViews
