@@ -13,5 +13,6 @@
     <string name="warning">Please fill at least the title</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="delete_everything">Delete everything</string>
 
 </resources>
