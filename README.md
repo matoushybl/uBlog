@@ -4,10 +4,10 @@ uBlog is an offline microblogging system
 
 Used libs
 =========
-https://gist.github.com/chrisbanes/11247418
-https://github.com/jgilfelt/SystemBarTint
-https://github.com/brightify/torch
-http://androidannotations.org/
+* https://gist.github.com/chrisbanes/11247418
+* https://github.com/jgilfelt/SystemBarTint
+* https://github.com/brightify/torch
+* http://androidannotations.org/
 
 License
 =======
