@@ -51,6 +51,7 @@ public class MainActivity extends Activity {
             systemBarTintManager.setStatusBarTintEnabled(true);
             systemBarTintManager.setNavigationBarTintEnabled(true);
         }
+        getActionBar().setIcon(R.drawable.ic_ab);
     }
 
     void update() {
