@@ -24,7 +24,7 @@ public class BaseApplication extends Application {
 
             @Override
             public void onFailure(Exception e) {
-
+                e.printStackTrace();
             }
         }).with(this).register(Post.class).submit();
     }
