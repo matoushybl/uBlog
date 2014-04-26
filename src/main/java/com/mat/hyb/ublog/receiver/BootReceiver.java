@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.mat.hyb.ublog.utility.PreferenceProvider;
+import com.mat.hyb.ublog.utility.ReminderTimer;
 
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EReceiver;
@@ -18,10 +19,13 @@ public class BootReceiver extends BroadcastReceiver {
     @Bean
     PreferenceProvider provider;
 
+    @Bean
+    ReminderTimer timer;
+
     @Override
     public void onReceive(Context context, Intent intent) {
         if (provider.isReminderEnabled()) {
-
+            timer.enable();
         }
     }
 }

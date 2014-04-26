@@ -1,6 +1,5 @@
 package com.mat.hyb.ublog.fragment;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
@@ -17,6 +16,8 @@ import com.mat.hyb.ublog.R;
 import com.mat.hyb.ublog.entity.Post;
 import com.mat.hyb.ublog.utility.PreferenceProvider;
 import com.mat.hyb.ublog.utility.PreferenceProvider_;
+import com.mat.hyb.ublog.utility.ReminderTimer;
+import com.mat.hyb.ublog.utility.ReminderTimer_;
 
 import org.androidannotations.annotations.EFragment;
 import org.brightify.torch.TorchService;
@@ -37,12 +38,14 @@ public class SettingsFragment extends PreferenceFragment {
     private final static String AUTHOR_G_PLUS_URI = "https://plus.google.com/114245631152542174178/posts";
 
     private PreferenceProvider provider;
+    private ReminderTimer timer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.main_preferences);
         provider = PreferenceProvider_.getInstance_(getActivity());
+        timer = ReminderTimer_.getInstance_(getActivity());
         Preference reset = findPreference(PREFERENCE_DELETE);
         if (reset != null) {
             reset.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
@@ -64,6 +67,11 @@ public class SettingsFragment extends PreferenceFragment {
                 public boolean onPreferenceChange(Preference preference, Object o) {
                     notificationCheck.setChecked((Boolean) o);
                     notificationTime.setEnabled(notificationCheck.isChecked());
+                    if ((Boolean) o) {
+                        timer.enable();
+                    } else {
+                        timer.disable();
+                    }
                     return false;
                 }
             });
@@ -76,6 +84,7 @@ public class SettingsFragment extends PreferenceFragment {
                                 public void onTimeSet(TimePicker timePicker, int i, int i2) {
                                     provider.setHour(i);
                                     provider.setMinute(i2);
+                                    timer.enable();
                                 }
                             }, provider.getHour(), provider.getMinute(),
                             DateFormat.is24HourFormat(getActivity())

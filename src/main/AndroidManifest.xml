@@ -8,11 +8,11 @@
         android:name=".BaseApplication_"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/appName"
         android:theme="@style/AppTheme">
         <activity
             android:name="com.mat.hyb.ublog.activity.MainActivity_"
-            android:label="@string/app_name">
+            android:label="@string/appName">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.mat.hyb.ublog.R;
 import com.mat.hyb.ublog.adapter.CardAdapter;
+import com.mat.hyb.ublog.utility.PreferenceProvider;
+import com.mat.hyb.ublog.utility.ReminderTimer;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import org.androidannotations.annotations.AfterViews;
@@ -32,6 +34,12 @@ public class MainActivity extends Activity {
     @Bean
     CardAdapter adapter;
 
+    @Bean
+    ReminderTimer timer;
+
+    @Bean
+    PreferenceProvider provider;
+
     @AfterViews
     void init() {
         adapter.setOnItemsChanged(new CardAdapter.OnItemsChanged() {
@@ -40,6 +48,9 @@ public class MainActivity extends Activity {
                 update();
             }
         });
+        if (provider.isReminderEnabled()) {
+            timer.enable();
+        }
         if (Build.VERSION.SDK_INT >= 19) {
             Window window = getWindow();
             window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
