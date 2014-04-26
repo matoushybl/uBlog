@@ -4,5 +4,7 @@
     <string name="app_name">uBlog</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="add">Add</string>
+    <string name="done">Done</string>
 
 </resources>

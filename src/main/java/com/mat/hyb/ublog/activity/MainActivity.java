@@ -34,6 +34,11 @@ public class MainActivity extends Activity {
     }
 
     @OptionsItem
+    void add() {
+        AddPostActivity_.intent(this).start();
+    }
+
+    @OptionsItem
     void settings() {
         SettingsActivity_.intent(this).start();
     }
