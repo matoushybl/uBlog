@@ -2,6 +2,7 @@ package com.mat.hyb.ublog.activity;
 
 import android.preference.PreferenceActivity;
 
+import com.mat.hyb.ublog.R;
 import com.mat.hyb.ublog.fragment.SettingsFragment;
 
 import org.androidannotations.annotations.AfterViews;
@@ -23,6 +24,7 @@ public class SettingsActivity extends PreferenceActivity {
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new SettingsFragment()).commit();
         getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setIcon(R.drawable.ic_ab);
         setTitle(settings);
     }
 

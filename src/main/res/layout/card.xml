@@ -5,26 +5,27 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
             android:text="title"
             android:textAllCaps="true"
             android:textColor="#0099cc"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_weight="1" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/popup"
-            android:src="@drawable/ic_action_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right" />
+            android:layout_gravity="right"
+            android:src="@drawable/ic_action_menu" />
 
     </LinearLayout>
 
@@ -41,7 +42,7 @@
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/tertiary_text_dark"
-        android:maxLines="4" />
+        android:maxLines="4"
+        android:textColor="@android:color/tertiary_text_dark" />
 
 </merge>
