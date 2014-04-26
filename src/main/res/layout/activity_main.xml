@@ -2,15 +2,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp"
+    android:background="#f1f1f1"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingTop="12dp"
     tools:context="com.mat.hyb.ublog.activity.MainActivity">
 
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:divider="#f1f1f1"
         android:dividerHeight="5dp"
-        android:divider="#f1f1f1"/>
+        android:clipToPadding="false"
+        android:fitsSystemWindows="true" />
 
     <TextView
         android:id="@+id/tutorial"

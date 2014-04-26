@@ -1,12 +1,16 @@
 package com.mat.hyb.ublog.activity;
 
 import android.app.Activity;
+import android.os.Build;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.mat.hyb.ublog.R;
 import com.mat.hyb.ublog.adapter.CardAdapter;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
@@ -33,10 +37,23 @@ public class MainActivity extends Activity {
         adapter.setOnItemsChanged(new CardAdapter.OnItemsChanged() {
             @Override
             public void onItemsChanged() {
-                listView.setAdapter(adapter);
-                showOrHideTutorial();
+                update();
             }
         });
+        if (Build.VERSION.SDK_INT >= 19) {
+            Window window = getWindow();
+            window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            SystemBarTintManager systemBarTintManager = new SystemBarTintManager(this);
+            systemBarTintManager.setStatusBarTintColor(getResources().getColor(R.color.base_color));
+            systemBarTintManager.setNavigationBarAlpha(0.0f);
+            systemBarTintManager.setNavigationBarTintColor(getResources().getColor(android.R.color.black));
+            systemBarTintManager.setStatusBarTintEnabled(true);
+            systemBarTintManager.setNavigationBarTintEnabled(true);
+        }
+    }
+
+    void update() {
         adapter.refresh();
         listView.setAdapter(adapter);
         showOrHideTutorial();
@@ -53,7 +70,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        init();
+        update();
     }
 
     @OptionsItem
