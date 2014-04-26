@@ -14,6 +14,7 @@ import org.androidannotations.annotations.RootContext;
 import org.brightify.torch.TorchService;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -57,6 +58,7 @@ public class CardAdapter extends BaseAdapter {
     public void refresh() {
         List<Post> posts = TorchService.torch().load().type(Post.class).list();
         cards = new ArrayList<Card>();
+        Collections.reverse(posts);
         for (Post post : posts) {
             Card card = Card_.build(context);
             card.setPost(post);
