@@ -14,5 +14,7 @@
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="delete_everything">Delete everything</string>
+    <string name="author">Author</string>
+    <string name="used_libraries">Used libraries</string>
 
 </resources>

@@ -2,7 +2,14 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Preference android:key="deleteAll"
-        android:title="@string/delete_everything"/>
+    <Preference
+        android:key="deleteAll"
+        android:title="@string/delete_everything" />
 
+    <Preference
+        android:key="authorInfo"
+        android:title="@string/author" />
+    <Preference
+        android:key="usedLibraries"
+        android:title="@string/used_libraries" />
 </PreferenceScreen>
