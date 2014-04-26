@@ -112,13 +112,15 @@ public class SettingsFragment extends PreferenceFragment {
                 public boolean onPreferenceClick(Preference preference) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setTitle("Used libraries");
-                    builder.setMessage("* SystemBarTint\n* AndroidAnnotations\n* Torch");
-                    builder.setNegativeButton(getResources().getString(android.R.string.ok), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                        }
-                    });
+                    builder.setMessage("* SystemBarTint\n* AndroidAnnotations\n* Torch\n* FloatLabelLayout");
+                    builder.setNegativeButton(getResources().getString(android.R.string.ok),
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            }
+                    );
                     builder.create().show();
                     return true;
                 }

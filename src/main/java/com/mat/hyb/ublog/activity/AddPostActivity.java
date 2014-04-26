@@ -48,9 +48,9 @@ public class AddPostActivity extends Activity {
     void init() {
         if (id != -1) {
             post = TorchService.torch().load().type(Post.class).id(id);
+            title.setText(post.getTitle());
+            content.setText(post.getContent());
         }
-        title.setText(post.getTitle());
-        content.setText(post.getContent());
     }
 
     @Override

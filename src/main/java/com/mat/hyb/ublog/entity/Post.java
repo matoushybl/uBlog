@@ -9,6 +9,11 @@ import org.brightify.torch.annotation.Id;
 @Entity
 public class Post {
 
+    @Id
+    public Long getId() {
+        return id;
+    }
+
     private Long id;
 
     private String title;
@@ -59,11 +64,6 @@ public class Post {
 
     public void setMillis(long millis) {
         this.millis = millis;
-    }
-
-    @Id
-    public Long getId() {
-        return id;
     }
 
     public void setId(Long id) {

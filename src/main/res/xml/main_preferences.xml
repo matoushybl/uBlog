@@ -26,6 +26,7 @@
         <Preference
             android:key="authorInfo"
             android:title="@string/author" />
+
         <Preference
             android:key="usedLibraries"
             android:title="@string/used_libraries" />

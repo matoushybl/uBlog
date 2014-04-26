@@ -25,10 +25,6 @@ public class CardAdapter extends BaseAdapter {
     @RootContext
     Context context;
 
-    public interface OnItemsChanged {
-        void onItemsChanged();
-    }
-
     private OnItemsChanged onItemsChanged = new OnItemsChanged() {
         @Override
         public void onItemsChanged() {
@@ -36,7 +32,6 @@ public class CardAdapter extends BaseAdapter {
         }
     };
 
-    private List<Post> posts = new ArrayList<Post>();
     private List<Card> cards = new ArrayList<Card>();
 
     @Override
@@ -60,7 +55,7 @@ public class CardAdapter extends BaseAdapter {
     }
 
     public void refresh() {
-        posts = TorchService.torch().load().type(Post.class).list();
+        List<Post> posts = TorchService.torch().load().type(Post.class).list();
         cards = new ArrayList<Card>();
         for (Post post : posts) {
             Card card = Card_.build(context);
@@ -78,5 +73,9 @@ public class CardAdapter extends BaseAdapter {
 
     public void setOnItemsChanged(OnItemsChanged onItemsChanged) {
         this.onItemsChanged = onItemsChanged;
+    }
+
+    public interface OnItemsChanged {
+        void onItemsChanged();
     }
 }

@@ -34,6 +34,24 @@ public class Card extends LinearLayout {
 
     @ViewById
     ImageView popup;
+    private OnCardDeleted onCardDeleted = new OnCardDeleted() {
+        @Override
+        public void onDeleted() {
+
+        }
+    };
+
+    private Post post;
+
+    public Card(Context context) {
+        super(context);
+        initView();
+    }
+
+    public Card(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        initView();
+    }
 
     @Click(R.id.popup)
     void showPopup() {
@@ -57,29 +75,6 @@ public class Card extends LinearLayout {
         menu.show();
     }
 
-    public interface OnCardDeleted {
-        void onDeleted();
-    }
-
-    private OnCardDeleted onCardDeleted = new OnCardDeleted() {
-        @Override
-        public void onDeleted() {
-
-        }
-    };
-
-    public Card(Context context) {
-        super(context);
-        initView();
-    }
-
-    private Post post;
-
-    public Card(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        initView();
-    }
-
     private void initView() {
         setBackgroundResource(R.drawable.card);
         setOrientation(VERTICAL);
@@ -97,11 +92,11 @@ public class Card extends LinearLayout {
         content.setText(post.getContent());
     }
 
-    public Post getPost() {
-        return post;
-    }
-
     public void setOnCardDeleted(OnCardDeleted onCardDeleted) {
         this.onCardDeleted = onCardDeleted;
+    }
+
+    public interface OnCardDeleted {
+        void onDeleted();
     }
 }

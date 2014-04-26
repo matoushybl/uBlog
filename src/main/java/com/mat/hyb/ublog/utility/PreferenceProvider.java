@@ -15,7 +15,7 @@ public class PreferenceProvider {
 
     private static final String MINUTE = "minute";
     private static final String HOUR = "hour";
-    private final static String PREFERENCE_NOTIF = "notification";
+    private final static String NOTIFICATION = "notification";
 
 
     @RootContext
@@ -32,14 +32,14 @@ public class PreferenceProvider {
         return preferences.getInt(MINUTE, 0);
     }
 
-    public int getHour() {
-        return preferences.getInt(HOUR, 15);
-    }
-
     public void setMinute(int minute) {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt(MINUTE, minute);
         editor.commit();
+    }
+
+    public int getHour() {
+        return preferences.getInt(HOUR, 15);
     }
 
     public void setHour(int hour) {
@@ -49,7 +49,7 @@ public class PreferenceProvider {
     }
 
     public boolean isReminderEnabled() {
-        return preferences.getBoolean(PREFERENCE_NOTIF, false);
+        return preferences.getBoolean(NOTIFICATION, false);
     }
 
 }
