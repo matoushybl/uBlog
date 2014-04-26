@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.mat.hyb.ublog.activity.MainActivity" >
     
-    <item android:id="@+id/action_settings"
+    <item android:id="@+id/settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never" />
