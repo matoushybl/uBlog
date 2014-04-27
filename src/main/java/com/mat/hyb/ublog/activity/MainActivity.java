@@ -2,6 +2,7 @@ package com.mat.hyb.ublog.activity;
 
 import android.app.Activity;
 import android.os.Build;
+import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -59,7 +60,6 @@ public class MainActivity extends Activity {
             systemBarTintManager.setStatusBarTintEnabled(true);
             systemBarTintManager.setNavigationBarTintEnabled(true);
         }
-        getActionBar().setIcon(R.drawable.ic_ab);
     }
 
     void update() {
@@ -80,6 +80,12 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
         update();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getActionBar().setIcon(R.drawable.ic_ab);
     }
 
     @OptionsItem

@@ -2,16 +2,20 @@ package com.mat.hyb.ublog.activity;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.mat.hyb.ublog.R;
 import com.mat.hyb.ublog.entity.Post;
 import com.mat.hyb.ublog.utility.DateTimeParser;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
@@ -87,5 +91,16 @@ public class AddPostActivity extends Activity {
                 | ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_SHOW_TITLE);
         getActionBar().setCustomView(view, new ActionBar.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        if (Build.VERSION.SDK_INT >= 19) {
+            Window window = getWindow();
+            window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            SystemBarTintManager systemBarTintManager = new SystemBarTintManager(this);
+            systemBarTintManager.setStatusBarTintColor(getResources().getColor(R.color.base_color));
+            systemBarTintManager.setNavigationBarAlpha(0.0f);
+            systemBarTintManager.setNavigationBarTintColor(getResources().getColor(android.R.color.black));
+            systemBarTintManager.setStatusBarTintEnabled(true);
+            systemBarTintManager.setNavigationBarTintEnabled(true);
+        }
     }
 }
