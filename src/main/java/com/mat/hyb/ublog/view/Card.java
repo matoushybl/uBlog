@@ -1,6 +1,7 @@
 package com.mat.hyb.ublog.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -15,6 +16,7 @@ import com.mat.hyb.ublog.entity.Post;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.res.StringRes;
 import org.brightify.torch.TorchService;
 
 /**
@@ -34,6 +36,10 @@ public class Card extends LinearLayout {
 
     @ViewById
     ImageView popup;
+
+    @StringRes
+    String shareTitle;
+
     private OnCardDeleted onCardDeleted = new OnCardDeleted() {
         @Override
         public void onDeleted() {
@@ -68,11 +74,24 @@ public class Card extends LinearLayout {
                         TorchService.torch().delete().entity(post);
                         onCardDeleted.onDeleted();
                         return true;
+                    case R.id.share:
+                        share();
+                        return true;
                 }
                 return false;
             }
         });
         menu.show();
+    }
+
+    private void share() {
+        String toShare = post.getTitle() + "\n" + post.getDate() + ", " + post.getTime() + "\n\n"
+                + post.getContent();
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, toShare);
+        getContext().startActivity(Intent.createChooser(intent, shareTitle));
     }
 
     private void initView() {

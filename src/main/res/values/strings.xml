@@ -22,5 +22,7 @@
     <string name="details">Details</string>
     <string name="notificationText">Tap to write post</string>
     <string name="general_settings_label">General</string>
+    <string name="Share">Share</string>
+    <string name="shareTitle">Share…</string>
 
 </resources>
