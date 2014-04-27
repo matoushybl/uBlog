@@ -13,6 +13,7 @@ import com.mat.hyb.ublog.R;
 import com.mat.hyb.ublog.activity.AddPostActivity_;
 import com.mat.hyb.ublog.entity.Post;
 
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
@@ -40,6 +41,12 @@ public class Card extends LinearLayout {
     @StringRes
     String shareTitle;
 
+    @StringRes
+    String hide;
+
+    @StringRes
+    String show;
+
     private OnCardDeleted onCardDeleted = new OnCardDeleted() {
         @Override
         public void onDeleted() {
@@ -48,6 +55,8 @@ public class Card extends LinearLayout {
     };
 
     private Post post;
+
+    private PopupMenu popupMenu;
 
     public Card(Context context) {
         super(context);
@@ -59,11 +68,11 @@ public class Card extends LinearLayout {
         initView();
     }
 
-    @Click(R.id.popup)
-    void showPopup() {
-        PopupMenu menu = new PopupMenu(getContext(), popup);
-        menu.inflate(R.menu.card_menu);
-        menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+    @AfterViews
+    void init() {
+        popupMenu = new PopupMenu(getContext(), popup);
+        popupMenu.inflate(R.menu.card_menu);
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
@@ -77,11 +86,32 @@ public class Card extends LinearLayout {
                     case R.id.share:
                         share();
                         return true;
+                    case R.id.hide:
+                        hide(item);
+                        return true;
                 }
                 return false;
             }
         });
-        menu.show();
+    }
+
+    private void hide(MenuItem item) {
+        if (item.getTitle().equals(hide)) {
+            item.setTitle(show);
+            title.setVisibility(INVISIBLE);
+            date.setVisibility(INVISIBLE);
+            content.setVisibility(INVISIBLE);
+        } else {
+            item.setTitle(hide);
+            title.setVisibility(VISIBLE);
+            date.setVisibility(VISIBLE);
+            content.setVisibility(VISIBLE);
+        }
+    }
+
+    @Click(R.id.popup)
+    void showPopup() {
+        popupMenu.show();
     }
 
     private void share() {

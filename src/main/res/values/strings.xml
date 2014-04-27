@@ -24,5 +24,7 @@
     <string name="general_settings_label">General</string>
     <string name="Share">Share</string>
     <string name="shareTitle">Share…</string>
+    <string name="hide">Hide text</string>
+    <string name="show">Show text</string>
 
 </resources>
