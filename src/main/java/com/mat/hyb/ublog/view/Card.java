@@ -115,7 +115,7 @@ public class Card extends LinearLayout {
     }
 
     private void share() {
-        String toShare = post.getTitle() + "\n" + post.getDate() + ", " + post.getTime() + "\n\n"
+        String toShare = post.getTitle().toUpperCase() + "\n" + post.getDate() + ", " + post.getTime() + "\n\n"
                 + post.getContent();
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
